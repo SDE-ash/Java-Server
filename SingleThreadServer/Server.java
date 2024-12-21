@@ -10,11 +10,11 @@ public class Server{
     public void run() throws IOException{
         int port = 8010;
         try {
-            ServerSocket socket = new ServerSocket(port);
-            socket.setSoTimeout(15000);
+            ServerSocket Serversocket = new ServerSocket(port);
+            Serversocket.setSoTimeout(15000);
             while(true){
                 System.err.println("server is listenign on port : "+port);
-                Socket acceptedConnection = socket.accept();
+                Socket acceptedConnection = Serversocket.accept();
                 System.err.println("connnection accepted from client :"+ acceptedConnection.getRemoteSocketAddress());
                 PrintWriter toClient = new PrintWriter(acceptedConnection.getOutputStream());
                 BufferedReader fromClient = new BufferedReader(new InputStreamReader(acceptedConnection.getInputStream()));
